@@ -1,4 +1,7 @@
 # Ray Optics Simulation
+
+This is a fork of the insanely awesome Ray Optics Simulation created by Rick Tu. I wanted to learn some javascript and how this code was written, so this fork isn't really intended for anyone but me. It's best to assume that I've somehow destroyed the underlying code and that it's nothing you should be touching with less than a 10 ft pole.
+
 Simulate reflection and refraction of light.
 ## Features
 - Simulate various light sources: ray, beam, and point source

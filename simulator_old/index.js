@@ -2531,7 +2531,7 @@
 
     };
 
-    //"protractor"物件
+    //"protractor" property
     objTypes['protractor'] = {
 
         //======================================建立物件=========================================
@@ -2676,7 +2676,7 @@
     var positioningObj = -1; //輸入座標中的物件編號(-1表示沒有,-4表示觀察者)
     var draggingPart = {}; //拖曳的部份與滑鼠位置資訊
     var selectedObj = -1; //選取的物件編號(-1表示沒有選取)
-    var AddingObjType = ''; //拖曳空白處新增物件的類型
+    var AddingObjType = ''; //Drag the type of new object in the blank space
     var waitingRays = []; //待處理光線
     var waitingRayCount = 0; //待處理光線數量
     var rayDensity_light = 0.1; //光線密度(光線相關模式)
@@ -3021,7 +3021,7 @@
     };
 
 
-    //========================畫出物件=================================
+    //========================draw objects=================================
 
     function draw() {
         stateOutdated = true;
@@ -3101,12 +3101,12 @@
     //========================================光線處理區==================================================
     //////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    //====================將一道光放入等待區=========================
+    //====================put light into the waiting area=========================
     function addRay(ray) {
         waitingRays[waitingRays.length] = ray;
     }
 
-    //==================取得目前模式的光線密度======================
+    //==================get the current light density mode======================
     function getRayDensity() {
         if (mode == 'images' || mode == 'observer') {
             return rayDensity_images;
@@ -3757,13 +3757,10 @@
             draggingPart = {};
             createUndoPoint();
         }
-
-
     }
 
-
     function canvas_ondblclick(e) {
-        //console.log("d");
+        // console.log("d");
         var mouse = graphs.point(e.pageX - e.target.offsetLeft, e.pageY - e.target.offsetTop); //滑鼠實際位置(一律不使用格線)
         if (isConstructing) {
         }
@@ -3842,7 +3839,6 @@
         }
 
     }
-
 
     window.onresize = function (e) {
         if (ctx) {
@@ -4228,7 +4224,6 @@
 
     }
 
-
     function toolbtn_mouseentered(tool, e) {
         hideAllLists();
     }
@@ -4338,7 +4333,6 @@
         AddingObjType = tool;
     }
 
-
     function modebtn_clicked(mode1) {
         document.getElementById('mode_' + mode).className = 'toolbtn';
         document.getElementById('mode_' + mode1).className = 'toolbtnselected';
@@ -4358,7 +4352,6 @@
         draw();
     }
 
-
     function cancelMousedownEvent(id) {
         document.getElementById(id).onmousedown = function (e) {
             e.cancelBubble = true;
@@ -4369,7 +4362,6 @@
             if (e.stopPropagation) e.stopPropagation();
         };
     }
-
 
     function setRayDensity(value) {
         if (mode == 'images' || mode == 'observer') {

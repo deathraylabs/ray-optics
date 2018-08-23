@@ -6,8 +6,6 @@ FileSaver.js
 icon128.png
 manifest.json
 locales/en.js
-locales/zh_TW.js
-locales/zh_CN.js
 script.js
 style.css
 ToolBarGroup.js

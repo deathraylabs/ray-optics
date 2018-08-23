@@ -14,6 +14,7 @@
     <script src="index.js"></script>
     <script src="FileSaver.js"></script>
     <script src="locales/en.js"></script>
+    <!-- stylesheet for simulation toolbox and buttons -->
     <style>
         input[type="button"] {
             margin: 1px;
@@ -150,8 +151,10 @@
 <body style="background-color:rgb(0,0,0); overflow:hidden;">
 <canvas id="canvas1" style="position:absolute;top:0;left:0;"></canvas>
 <div style="position:absolute; top:0; left:0; width:100%;">
+    <!-- buttons and options located on right side of toolbar -->
     <div class="mainbox" id="mainbox" style="width:100%;">
         <div style="float: right; text-align:right; margin-right:5px">
+            <!-- file management buttons -->
             <div>
                 <input type="button" id="undo" disabled>
                 <input type="button" id="redo" disabled>
@@ -161,6 +164,7 @@
                 <input type="button" id="open">
                 <input type="file" id="openfile" style="display:none">
             </div>
+            <!-- checkbox options below file buttons -->
             <div style="margin-top:2px">
                 <label id="showgrid_">
                     <input type="checkbox" id="showgrid">
@@ -178,6 +182,7 @@
         </div>
 
         <!--===============工具欄==================-->
+        <!-- tool: -->
         <div class="optionsbar">
             <span id="toolbar_title"></span>
             <input type="button" class="toolbtn" id="tool_laser">
@@ -191,6 +196,7 @@
             <input type="button" class="toolbtn" id="tool_">
         </div>
 
+        <!-- View: -->
         <div class="optionsbar">
             <span id="modebar_title"></span>
             <input type="button" class="toolbtn" id="mode_light">
@@ -202,6 +208,7 @@
             <span id="status" style="display:none;"></span>
         </div>
     </div>
+
     <div id="obj_settings" class="settingsbox" style="left:0; width:100%; display:none;">
         <div class="optionsbar">
             <span id="obj_name"></span>

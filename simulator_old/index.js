@@ -283,7 +283,7 @@
 
     var objTypes = {};
 
-    //線段物件之原型
+    //prototype of line object
     objTypes['lineobj'] = {
         //==============================建立物件過程滑鼠按下=======================================
         c_mousedown: function (obj, mouse) {
@@ -437,7 +437,7 @@
 
     };
 
-    //"halfplane"(半平面折射鏡)物件
+    //"halfplane"(half plane refractor) object
     objTypes['halfplane'] = {
 
         p_name: 'Refractive index', //屬性名稱
@@ -2035,15 +2035,15 @@
 
     };
 
-    //"parallel"(平行光)物件
+    //"parallel"parallel light prototype
     objTypes['parallel'] = {
 
-        p_name: 'Brightness', //屬性名稱
+        p_name: 'Brightness', //attribute name
         p_min: 0,
         p_max: 1,
         p_step: 0.01,
 
-        //======================================建立物件=========================================
+        //======================================create object=========================================
         create: function (mouse) {
             return {type: 'parallel', p1: mouse, p2: mouse, p: 0.5};
         },
@@ -2056,7 +2056,7 @@
         clicked: objTypes['lineobj'].clicked,
         dragging: objTypes['lineobj'].dragging,
 
-        //=================================將物件畫到Canvas上====================================
+        //=================================Draw objects to Canvas====================================
         draw: function (obj, canvas) {
             //var ctx = canvas.getContext('2d');
             var a_l = Math.atan2(obj.p1.x - obj.p2.x, obj.p1.y - obj.p2.y) - Math.PI / 2;
@@ -2079,7 +2079,7 @@
         },
 
 
-        //=================================射出光線=============================================
+        //=================================emitting ray=============================================
         shoot: function (obj) {
             var n = graphs.length_segment(obj) * getRayDensity();
             var stepX = (obj.p2.x - obj.p1.x) / n;
@@ -2666,7 +2666,7 @@
 
     var canvas;
     var ctx;
-    var mouse; //滑鼠位置
+    var mouse; //mouse position
     var mouse_lastmousedown; //上一次按下滑鼠時的滑鼠位置
     var objs = []; //物件
     var objCount = 0; //物件數量

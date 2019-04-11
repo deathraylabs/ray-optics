@@ -3098,7 +3098,7 @@
 
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////
-    //========================================光線處理區==================================================
+    //=====================Light Processing Area===========================================
     //////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //====================put light into the waiting area=========================
@@ -3117,7 +3117,7 @@
     }
 
 
-    //====================射出等待區的光線=========================
+    //====================Waiting aread of the light emitted=========================
     function shootWaitingRays() {
         timerID = -1;
         var st_time = new Date();
@@ -3416,7 +3416,7 @@
 
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////
-    //========================================滑鼠動作區==================================================
+    //==========================Mouse action area======================================
     //////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -3429,7 +3429,7 @@
     }
 
     function mouseOnSegment(mouse, segment) {
-        var d_per = Math.pow((mouse.x - segment.p1.x) * (segment.p1.y - segment.p2.y) + (mouse.y - segment.p1.y) * (segment.p2.x - segment.p1.x), 2) / ((segment.p1.y - segment.p2.y) * (segment.p1.y - segment.p2.y) + (segment.p2.x - segment.p1.x) * (segment.p2.x - segment.p1.x)); //類似於滑鼠與直線垂直距離
+        var d_per = Math.pow((mouse.x - segment.p1.x) * (segment.p1.y - segment.p2.y) + (mouse.y - segment.p1.y) * (segment.p2.x - segment.p1.x), 2) / ((segment.p1.y - segment.p2.y) * (segment.p1.y - segment.p2.y) + (segment.p2.x - segment.p1.x) * (segment.p2.x - segment.p1.x)); //Similar to the mouse and the straight line perpendicular distance
         var d_par = (segment.p2.x - segment.p1.x) * (mouse.x - segment.p1.x) + (segment.p2.y - segment.p1.y) * (mouse.y - segment.p1.y); //類似於滑鼠在直線上投影位置
         return d_per < clickExtent_line * clickExtent_line && d_par >= 0 && d_par <= graphs.length_segment_squared(segment);
     }
@@ -3439,7 +3439,7 @@
         return d_per < clickExtent_line * clickExtent_line;
     }
 
-    //將滑鼠位置吸附至指定的方向中之最接近者(該方向直線上之投影點)
+    //Adsorbs the mouse position to the closest one in the specified direction (projection point on the straight line in that direction)
     function snapToDirection(mouse, basePoint, directions, snapData) {
         var x = mouse.x - basePoint.x;
         var y = mouse.y - basePoint.y;
@@ -3482,7 +3482,7 @@
         } else {
             var et = e;
         }
-        var mouse_nogrid = graphs.point(et.pageX - e.target.offsetLeft, et.pageY - e.target.offsetTop); //滑鼠實際位置
+        var mouse_nogrid = graphs.point(et.pageX - e.target.offsetLeft, et.pageY - e.target.offsetTop); //actual position of the mouse
         mouse_lastmousedown = mouse_nogrid;
         if (positioningObj != -1) {
             confirmPositioning(e.ctrlKey, e.shiftKey);
@@ -3498,12 +3498,12 @@
 
         //if(document.getElementById("grid").checked || e.altKey)
         if (document.getElementById('grid').checked) {
-            //使用格線
+            //use grid lines
             mouse = graphs.point(Math.round((et.pageX - e.target.offsetLeft - origin.x) / gridSize) * gridSize + origin.x, Math.round((et.pageY - e.target.offsetTop - origin.y) / gridSize) * gridSize + origin.y);
 
         }
         else {
-            //不使用格線
+            //do not use grid lines
             mouse = mouse_nogrid;
         }
 
@@ -3960,7 +3960,7 @@
 
     function undo() {
         if (isConstructing) {
-            //假如按下復原時,使用者正在建立一個物件,則此時只將建立動作終止,而不做真正的復原
+            //When pressed if the recovery, the user is building an object, only this time the action will be established terminated without doing real recovery
 
             isConstructing = false;
             objs.length--;
@@ -4154,7 +4154,7 @@
     };
 
 
-    //=========================================JSON輸出/輸入====================================================
+    //=========================================JSON input/output====================================================
     function JSONOutput() {
         document.getElementById('textarea1').value = JSON.stringify({
             version: 2,
